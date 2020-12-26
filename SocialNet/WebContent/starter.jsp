@@ -280,7 +280,7 @@ for(Invitation v: vs)
       <div class="container-fluid">
       
       <div class="row">
-      <div class="col-3"></div>
+      <div class="col-2"></div>
       <div class="col-6">
        <form action="Addpost">
                     
@@ -305,6 +305,7 @@ for(Invitation v: vs)
                 
                 </form>
                 </div>
+                
                  </div>
                  
       
@@ -338,15 +339,19 @@ for(Invitation v: vs)
 
                       <p>
                         <a href="#" class="link-black text-sm mr-2"><i class="fas fa-share mr-1"></i> Share</a>
-                        <a href="#" class="link-black text-sm"><i class="far fa-thumbs-up mr-1"></i> Like</a>
+                        <a href="Addlike?type=1&idu=<%= u.getId() %>&idp=<%= p.getId() %>" class="link-black text-sm  "><i class="far fa-thumbs-up mr-1"></i> Like<span class="badge  bg-purple"><%= dao.likecount(p.getId(), 1) %></span> </a>
                         <span class="float-right">
                           <a href="#" class="link-black text-sm">
                             <i class="far fa-comments mr-1"></i> Comments (5)
                           </a>
                         </span>
                       </p>
-
-                      <input class="form-control form-control-sm" type="text" placeholder="Type a comment">
+					<div class="input-group mb-3">
+                  <input type="text" class="form-control form-control-sm rounded-0" placeholder="Type a comment">
+                  <span class="input-group-append">
+                    <button type="button" class="btn btn-primary btn-xs form-control-sm btn-flat">Go!</button>
+                  </span>
+                </div>
                       
                     </div>
     </div>  

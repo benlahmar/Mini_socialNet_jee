@@ -3,27 +3,92 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <!-- icheck bootstrap -->
+  <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/adminlte.min.css">
 </head>
-<body>
-<h2>Inscription</h2>
-<form action="Signin" method="post">
-<input type="text" name="lg"/><br/>
-<input type="password" name="ps"/><br/>
-<select name="role">
-<option>admin</option>
-<option>guest</option>
-</select>
-<input type="submit" value="valider"/>
-</form>
+<body class="register-page" style="min-height: 542px;">
+<div class="register-box">
+  <div class="card card-outline card-primary">
+    <div class="card-header text-center">
+      <a href="../../index2.html" class="h1"><b>Net</b>Social</a>
+    </div>
+    <div class="card-body">
+      <p class="login-box-msg">Register a new membership</p>
 
+      <form action="Signin" method="post">
+        <div class="input-group mb-3">
+          <input type="text" name="log" class="form-control" placeholder="Full name">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="input-group mb-3">
+          <input type="password" name="ps" class="form-control" placeholder="Password">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="password" class="form-control" placeholder="Retype password">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+        </div>
+        
+         <div class="input-group mb-3">
+          <select name="role" class="form-control" placeholder="Retype password">
+          <option>admin</option>
+          <option>guest</option>
+          </select>
+        </div>
+        <div class="row">
+          <div class="col-8">
+            <div class="icheck-primary">
+              <input type="checkbox" id="agreeTerms" name="terms" value="agree">
+              <label for="agreeTerms">
+               I agree to the <a href="#">terms</a>
+              </label>
+            </div>
+          </div>
+          <!-- /.col -->
+          <div class="col-4">
+            <button type="submit" class="btn btn-primary btn-block">Register</button>
+          </div>
+          <!-- /.col -->
+        </div>
+      </form>
 
-<hr/>
-<h2>Authentification</h2>
-<form action="Auth" method="post">
-<input type="text" name="lg"/><br/>
-<input type="password" name="ps"/>
-<br/>
-<input type="submit" value="connect"/>
-</form>
+      
+
+      <a href="login.jsp" class="text-center">I already have a membership</a>
+    </div>
+    <!-- /.form-box -->
+  </div><!-- /.card -->
+</div>
+
 </body>
+
+<!-- /.register-box -->
+
+<!-- jQuery -->
+<script src="plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="dist/js/adminlte.min.js"></script>
+
+
 </html>

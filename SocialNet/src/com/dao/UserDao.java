@@ -203,4 +203,33 @@ public class UserDao implements IDao{
 		return null;
 	}
 
+	@Override
+	public int addlike(int type, int idu, int idp) {
+		DBInteraction.connect();
+		String sql="insert into 4isis.like(type, idu, idp) values("+type+","+idu+","+idp+")";
+		int n=DBInteraction.Maj(sql);
+		DBInteraction.disconnect();
+		
+		return n;
+	}
+
+	@Override
+	public int likecount(int idp, int type) {
+		DBInteraction.connect();
+		String sql="select count(*) from 4isis.like where idp="+idp+" and type="+type;
+		int nb=0;
+		ResultSet rs = DBInteraction.Select(sql);
+		try {
+			rs.next();
+			 nb=rs.getInt(1);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	
+		DBInteraction.disconnect();
+		return nb;
+	}
+
 }

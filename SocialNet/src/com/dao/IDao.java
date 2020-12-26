@@ -23,4 +23,8 @@ public interface IDao {
 	public List<Post> myposts(int idu);
 	public List<Post> allposts(int idu);
 	
+	
+	public int addlike(int type, int idu, int idp);
+	public int likecount(int idp, int type);
+	
 }
