@@ -1,3 +1,4 @@
+<%@page import="com.model.Post"%>
 <%@page import="com.model.Invitation"%>
 <%@page import="java.util.List"%>
 <%@page import="com.model.User"%>
@@ -277,10 +278,83 @@ for(Invitation v: vs)
     <!-- Main content -->
     <div class="content">
       <div class="container-fluid">
+      
+      <div class="row">
+      <div class="col-3"></div>
+      <div class="col-6">
+       <form action="Addpost">
+                    
+                      <div class="form-group">
+                                           <div class="form-group">
+                        <label>Textarea</label>
+                        <textarea name="contenu" class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                      </div>
+                    </div>
+                  <div class="form-group">
+                  
+                  <select name="visib" class="custom-select " >
+                    <option>public</option>
+                    <option>private</option>
+                    <option>amis</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                <input type="hidden" name="idu" value="<%=u.getId() %>"/>
+                <input type="submit" class="btn btn-info" value="add"/>
+                </div>
+                
+                </form>
+                </div>
+                 </div>
+                 
+      
         <div class="row">
-
-	
+		<div class="col-md-2"></div>
 	<div class="col-md-6">
+	
+	       
+                  <%
+                  List<Post> ps= dao.myposts(u.getId());
+                  for(Post p: ps)
+                  {
+                  %>
+                  <div class="row">
+                   
+               <div class="col-md-12">
+               
+    		   <div class="post post clearfix">
+                      <div class="user-block">
+                        <img class="img-circle img-bordered-sm" src="dist/img/user1-128x128.jpg" alt="user image">
+                        <span class="username">
+                          <a href="#">Jonathan Burke Jr.</a>
+                          <a href="#" class="float-right btn-tool"><i class="fas fa-times"></i></a>
+                        </span>
+                        <span class="description">Shared publicly - <%= p.getDate() %></span>
+                      </div>
+                      <!-- /.user-block -->
+                      <p>
+                        <%= p.getContenu() %>
+                      </p>
+
+                      <p>
+                        <a href="#" class="link-black text-sm mr-2"><i class="fas fa-share mr-1"></i> Share</a>
+                        <a href="#" class="link-black text-sm"><i class="far fa-thumbs-up mr-1"></i> Like</a>
+                        <span class="float-right">
+                          <a href="#" class="link-black text-sm">
+                            <i class="far fa-comments mr-1"></i> Comments (5)
+                          </a>
+                        </span>
+                      </p>
+
+                      <input class="form-control form-control-sm" type="text" placeholder="Type a comment">
+                      
+                    </div>
+    </div>  
+    </div> 
+    <%} %>
+      </div>
+      <div class="col-md-4">
+      
                 <!-- USERS LIST -->
                 <div class="card">
                   <div class="card-header">
@@ -327,41 +401,11 @@ for(Invitation v: vs)
                     <!-- /.users-list -->
                   </div>
                   </div>
-                  </div>
-               <div class="col-md-6">
-               
-    		<div class="post post clearfix">
-                      <div class="user-block">
-                        <img class="img-circle img-bordered-sm" src="dist/img/user1-128x128.jpg" alt="user image">
-                        <span class="username">
-                          <a href="#">Jonathan Burke Jr.</a>
-                          <a href="#" class="float-right btn-tool"><i class="fas fa-times"></i></a>
-                        </span>
-                        <span class="description">Shared publicly - 7:30 PM today</span>
-                      </div>
-                      <!-- /.user-block -->
-                      <p>
-                        Lorem ipsum represents a long-held tradition for designers,
-                        typographers and the like. Some people hate it and argue for
-                        its demise, but others ignore the hate as they create awesome
-                        tools to help create filler text for everyone from bacon lovers
-                        to Charlie Sheen fans.
-                      </p>
-
-                      <p>
-                        <a href="#" class="link-black text-sm mr-2"><i class="fas fa-share mr-1"></i> Share</a>
-                        <a href="#" class="link-black text-sm"><i class="far fa-thumbs-up mr-1"></i> Like</a>
-                        <span class="float-right">
-                          <a href="#" class="link-black text-sm">
-                            <i class="far fa-comments mr-1"></i> Comments (5)
-                          </a>
-                        </span>
-                      </p>
-
-                      <input class="form-control form-control-sm" type="text" placeholder="Type a comment">
-                    </div>
-    </div>   
+           </div>
+    
+      
       </div>
+      
                   
         <!-- /.row -->
       </div><!-- /.container-fluid -->

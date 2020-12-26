@@ -53,7 +53,7 @@ public class Addpost extends HttpServlet {
 			else
 				vis=Visibilite.Amis;
 		dao.addPost(contenu, vis, u.getId());
-		response.sendRedirect("index2.jsp");
+		response.sendRedirect("starter.jsp");
 	
 	}
 

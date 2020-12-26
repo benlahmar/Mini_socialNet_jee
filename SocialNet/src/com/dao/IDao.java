@@ -3,6 +3,7 @@ package com.dao;
 import java.util.List;
 
 import com.model.Invitation;
+import com.model.Post;
 import com.model.User;
 import com.model.Visibilite;
 
@@ -19,4 +20,7 @@ public interface IDao {
 	public int isinvited(int idus, int idur, boolean e);
 	
 	public int addPost(String contenu, Visibilite visib, int idu);
+	public List<Post> myposts(int idu);
+	public List<Post> allposts(int idu);
+	
 }

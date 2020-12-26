@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.model.Invitation;
+import com.model.Post;
 import com.model.User;
 import com.model.Visibilite;
 import com.util.DBInteraction;
@@ -167,6 +168,39 @@ public class UserDao implements IDao{
 		DBInteraction.disconnect();
 		
 		return n;
+	}
+
+	@Override
+	public List<Post> myposts(int idu) {
+		List<Post> ps=new ArrayList<>();
+		DBInteraction.connect();
+		String sql="select * from post where idu="+idu+" order by date desc";
+		ResultSet rs = DBInteraction.Select(sql);
+		try {
+			while(rs.next())
+			{
+				Post p=new Post();
+				p.setId(rs.getInt(1));
+				p.setContenu(rs.getString(2));
+				p.setDate(rs.getDate(4));
+				p.setVisibilite(rs.getString(3));
+				int iduu=rs.getInt(5);
+				User u=new User();
+				u.setId(iduu);
+				p.setUser(u);
+				ps.add(p);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return ps;
+	}
+
+	@Override
+	public List<Post> allposts(int idu) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
